@@ -1,5 +1,6 @@
 package com.example.tjcpre
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
@@ -59,9 +60,12 @@ class PaintView : View {
 
 
 
+        @SuppressLint("ClickableViewAccessibility")
+        //TODO: Add Clickable method for Descktop Version
+
         override fun onTouchEvent(event: MotionEvent): Boolean {
-            var x = event.x
-            var y = event.y
+            val x = event.x
+            val y = event.y
 
             when (event.action) {
                 MotionEvent.ACTION_DOWN -> {
@@ -77,7 +81,7 @@ class PaintView : View {
                     ColorL.add(CurrBrush)
                 }
                 MotionEvent.ACTION_UP -> {
-                    ResetPath() // replace with sequential delete with bitmap array to save states of the path beeing drawn to then reset it bit by bit will give smooth transition
+                    resetPath() // replace with sequential delete with bitmap array to save states of the path beeing drawn to then reset it bit by bit will give smooth transition
 
                 }
                 else -> return false
@@ -86,11 +90,11 @@ class PaintView : View {
 
 
             postInvalidate()        //informs non-ui threds of changes on the UI
-            return false;
+            return false
 
         }
 
-        private fun ResetPath() {
+        private fun resetPath() {
             /// use bitmapse to save previous states befor drawn then use them to switch back and forth to slowly delete the drawn line
 
 
@@ -109,11 +113,11 @@ class PaintView : View {
         override fun onDraw(canvas: Canvas) {
             super.onDraw(canvas)
 
-
+ 
 
             for (i in PathL.indices) {
 
-                brush.setColor(ColorL[i])
+                brush.color = ColorL[i]
                 canvas.drawPath(PathL[i], brush)
                 invalidate() //informs non-ui threds of changes on the UI
 

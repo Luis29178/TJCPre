@@ -9,14 +9,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TJCPre">
-    <activity android:exported="true"
-        android:name=".MapView">
+
+
+
+        // TJCPHome Activity Declaration
+        <activity android:exported="true"
+        android:name=".TJCPHome">
         android:exported="false"
         <intent-filter >
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
-    </activity>
+        </activity>
+
+        //Map View Activity Declaration
+        <activity
+            android:exported="true"
+            android:name=".MapView">
+            android:exported="false"
+        </activity>
+
 </application>
 
 

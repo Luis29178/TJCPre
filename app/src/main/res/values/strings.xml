@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">TJCPre</string>
     <string name="Customs">Customs</string>
+    <string name="escape_from_tarkove">Escape From Tarkove</string>
+    <string name="item_traker">Item Traker</string>
+    <string name="paths">Paths</string>
+    <string name="login">Login</string>
 </resources>
