@@ -14,20 +14,26 @@ class TJCPHome : AppCompatActivity() {
 
         findViewById<Button>(R.id.EscapeFromTarkove).setOnClickListener{
 
-            ///TODO: change to switch to map selecting activity
+            ///TODO: change to switch to map selecting activity Screen
             // TEMP: Switches to MapView Mode
             val intent = Intent(this,MapView::class.java)
             startActivity(intent)
 
 
         }
-        findViewById<Button>(R.id.EscapeFromTarkove).setOnClickListener{
+        findViewById<Button>(R.id.ItemTraker).setOnClickListener{
 
-            ///TODO: change to switch to map selecting activity
-            // TEMP: Switches to MapView Mode
-            val intent = Intent(this,MapView::class.java)
-            startActivity(intent)
+            ///TODO: change to switch Item Tracker Screen
 
+        }
+        findViewById<Button>(R.id.Paths).setOnClickListener{
+
+            ///TODO: change to switch to Paths Screen
+
+        }
+        findViewById<Button>(R.id.Login).setOnClickListener{
+
+            ///TODO: change to switch to Login Screen
 
         }
 
