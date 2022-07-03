@@ -23,8 +23,6 @@ class PaintView : View {
             var ColorL = ArrayList<Int>()
             var CurrBrush = Color.BLACK
 
-
-
         }
 
         constructor(context: Context) : this(context, null) {

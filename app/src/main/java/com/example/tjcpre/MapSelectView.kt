@@ -2,6 +2,7 @@ package com.example.tjcpre
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.os.Binder
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -33,54 +34,73 @@ class MapSelectView : AppCompatActivity() {
         listView.isClickable = true
 
         listView.setOnItemClickListener { parent, view, position, id ->
+            val intent = Intent(this,MapView::class.java)
 
+            // this when loop will be Resposible for assigning
+            // witch map will open for raid mode
             when (position) {
 
                 // region Customs
                 0 ->{
 
+
+                    startActivity(intent)
                 }
                 // endregion
 
                 // region Interchange
                 1 ->{
 
+
+                    startActivity(intent)
                 }
                 // endregion
 
                 // region Reserve
                 2 ->{
 
+
+                    startActivity(intent)
                 }
                 // endregion
 
                 // region Labs
                 3 ->{
 
+
+                    startActivity(intent)
                 }
                 // endregion
 
                 // region Shoreline
                 4 ->{
 
+
+                    startActivity(intent)
                 }
                 // endregion
 
                 // region Factory
                 5 ->{
 
+
+                    startActivity(intent)
                 }
                 // endregion
 
                 // region Woods
                 6 ->{
 
+
+                    startActivity(intent)
                 }
                 // endregion
 
                 // region Lighthouse
                 7 ->{
 
+
+                    startActivity(intent)
                 }
                 // endregion
 
