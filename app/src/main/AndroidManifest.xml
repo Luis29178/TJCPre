@@ -22,12 +22,55 @@
         </intent-filter>
         </activity>
 
-        //Map View Activity Declaration
         <activity
             android:exported="true"
             android:name=".CustomsRaidMode">
             android:exported="false"
         </activity>
+
+        <activity
+            android:exported="true"
+            android:name=".InterchangeRaidMode">
+            android:exported="false"
+        </activity>
+
+        <activity
+            android:exported="true"
+            android:name=".FactoryRaidMode">
+            android:exported="false"
+        </activity>
+
+        <activity
+            android:exported="true"
+            android:name=".ReserveRaidMode">
+            android:exported="false"
+        </activity>
+
+        <activity
+            android:exported="true"
+            android:name=".LabsRaidMode">
+            android:exported="false"
+        </activity>
+
+        <activity
+            android:exported="true"
+            android:name=".LighthouseRaidMode">
+            android:exported="false"
+        </activity>
+
+        <activity
+            android:exported="true"
+            android:name=".WoodsRaidMode">
+            android:exported="false"
+        </activity>
+
+        <activity
+            android:exported="true"
+            android:name=".ShorelineRaidMode">
+            android:exported="false"
+        </activity>
+
+
 
         //MapSelectView Activity Declaration
         <activity
