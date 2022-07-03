@@ -10,8 +10,8 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import com.example.tjcpre.MapView.Companion.brush
-import com.example.tjcpre.MapView.Companion.path
+import com.example.tjcpre.CustomsRaidMode.Companion.brush
+import com.example.tjcpre.CustomsRaidMode.Companion.path
 
 class PaintView : View {
 

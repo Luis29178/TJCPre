@@ -5,4 +5,11 @@
     <string name="item_traker">Item Traker</string>
     <string name="paths">Paths</string>
     <string name="login">Login</string>
+    <string name="Factory">Factory</string>
+    <string name="Interchange">Interchange</string>
+    <string name="Labs">Labs</string>
+    <string name="Lighthouse">Lighthouse</string>
+    <string name="Reserve">Reserve</string>
+    <string name="Shoreline">Shoreline</string>
+    <string name="Woods">Woods</string>
 </resources>

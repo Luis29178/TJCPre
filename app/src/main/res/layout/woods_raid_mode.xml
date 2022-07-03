@@ -4,26 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MapView">
+    tools:context=".CustomsRaidMode">
 
 
     <ImageView
-        android:id="@+id/CostumsMap"
+        android:id="@+id/WoodsMap"
         android:layout_width="732dp"
         android:layout_height="382dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/custumsmapog"
-        android:contentDescription="@string/Customs" />
+        app:srcCompat="@drawable/woodsmap"
+        android:contentDescription="@string/Woods" />
 
     <RelativeLayout
+        android:id="@+id/Woods_PaintViewer"
         android:layout_width="732dp"
         android:layout_height="382dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-        <include layout="@layout/paintviewer"/>
+        app:layout_constraintTop_toTopOf="parent"
+        android:rotation="90"
+        >
+
+        <include layout="@layout/paintviewer"
+            android:rotation="90"
+            />
 
     </RelativeLayout>
 
