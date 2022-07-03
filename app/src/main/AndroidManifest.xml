@@ -29,6 +29,13 @@
             android:exported="false"
         </activity>
 
+        //MapSelectView Activity Declaration
+        <activity
+            android:exported="true"
+            android:name=".MapSelectView">
+            android:exported="false"
+        </activity>
+
 </application>
 
 

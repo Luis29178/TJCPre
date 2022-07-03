@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="120dp">
+    android:layout_height="120dp"
+    >
 
     <TextView
         android:id="@+id/mapListView_MapName"
@@ -28,7 +29,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mapListView_MapName"
         app:srcCompat="@android:drawable/ic_lock_idle_alarm"
-        tools:ignore="ContentDescription" />
+        tools:ignore="ContentDescription"
+        app:tint="@color/white" />
 
     <TextView
         android:id="@+id/mapListView_TimeTxt"
@@ -49,7 +51,8 @@
         android:layout_marginTop="10dp"
         app:layout_constraintStart_toEndOf="@+id/mapListView_TimeTxt"
         app:layout_constraintTop_toBottomOf="@+id/mapListView_MapName"
-        app:srcCompat="?android:attr/alertDialogIcon" />
+        app:srcCompat="?android:attr/alertDialogIcon"
+        app:tint="@color/white" />
 
     <TextView
         android:id="@+id/mapListView_DifficultyTxt"
@@ -70,7 +73,8 @@
         android:layout_marginTop="10dp"
         app:layout_constraintStart_toEndOf="@+id/mapListView_DifficultyTxt"
         app:layout_constraintTop_toBottomOf="@+id/mapListView_MapName"
-        app:srcCompat="@android:drawable/ic_menu_myplaces" />
+        app:srcCompat="@android:drawable/ic_menu_myplaces"
+        app:tint="@color/white" />
 
     <TextView
         android:id="@+id/mapListView_PlayerRangeTxt"

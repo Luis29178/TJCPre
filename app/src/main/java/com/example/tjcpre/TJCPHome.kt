@@ -16,7 +16,7 @@ class TJCPHome : AppCompatActivity() {
 
             ///TODO: change to switch to map selecting activity Screen
             // TEMP: Switches to MapView Mode
-            val intent = Intent(this,MapView::class.java)
+            val intent = Intent(this,MapSelectView::class.java)
             startActivity(intent)
 
 

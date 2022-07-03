@@ -17,9 +17,13 @@ class MapSelectView : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.mapselectview)
-        val listView = findViewById<ListView>(R.id.MapList)
 
-        listView.adapter = CustomAdapter(this)
+
+
+
+
+        //val listView = findViewById<ListView>(R.id.MapList)
+        //listView.adapter = CustomAdapter(this)
 
 
 
@@ -43,15 +47,12 @@ class MapSelectView : AppCompatActivity() {
             {
                 //Adds Each char to tempTitle
                 tempChar = mapInfo[CharPos]
-                tempTitle += mapInfo[CharPos]
+                if (tempChar != '|'){
+                    tempTitle += mapInfo[CharPos]
+                }
+
                 CharPos++
             }
-
-            CharPos++
-            //example-->
-            //Customs|30 MIN|9-12|Normal|!
-            //        ^
-            //     CharPos++
 
             return GrabberReturnClass(tempTitle, CharPos)
         }
@@ -93,7 +94,7 @@ class MapSelectView : AppCompatActivity() {
 
 
         //Responsible for rendering each row
-        @SuppressLint("SetTextI18n")
+
         override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
 
             val ListViewInflator = LayoutInflater.from(mContext)
@@ -119,7 +120,19 @@ class MapSelectView : AppCompatActivity() {
             var stringPos = 0
 
             // responsible for splitting the string up and assigning strings
-            while (tempChar != '!'){
+            while (CharPos < 27){
+                //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                //              On Final Iteration
+                //
+                //      Customs|30 MIN|9-12|Normal|!
+                //                                 ^
+                //                              CharPos
+                //
+                //          Ending Loop
+                //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
 
 
                 when(stringPos){
@@ -196,16 +209,7 @@ class MapSelectView : AppCompatActivity() {
                 }
 
 
-                        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                        //              On Final Iteration
-                        //
-                        //      Customs|30 MIN|9-12|Normal|!
-                        //                                 ^
-                        //                              CharPos
-                        //
-                        //          Ending Loop
-                        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                tempChar = mapInfo[CharPos]
+
 
             }
 
