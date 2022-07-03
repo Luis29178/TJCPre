@@ -5,9 +5,11 @@
       <map>
         <entry key="..\:/Users/Luis/AndroidStudioProjects/TJCPre/app/src/main/res/layout-land/activity_map_pathing.xml" value="0.27028218694885364" />
         <entry key="..\:/Users/Luis/AndroidStudioProjects/TJCPre/app/src/main/res/layout-land/paintviewer.xml" value="0.15696649029982362" />
+        <entry key="..\:/Users/Luis/AndroidStudioProjects/TJCPre/app/src/main/res/layout-v23/mapviewlistrow.xml" value="0.3625" />
         <entry key="..\:/Users/Luis/AndroidStudioProjects/TJCPre/app/src/main/res/layout/activity_map_pathing.xml" value="0.25" />
         <entry key="..\:/Users/Luis/AndroidStudioProjects/TJCPre/app/src/main/res/layout/maplistlayout.xml" value="0.18541666666666667" />
         <entry key="..\:/Users/Luis/AndroidStudioProjects/TJCPre/app/src/main/res/layout/mapselectview.xml" value="0.18541666666666667" />
+        <entry key="..\:/Users/Luis/AndroidStudioProjects/TJCPre/app/src/main/res/layout/mapviewlistrow.xml" value="0.5" />
         <entry key="..\:/Users/Luis/AndroidStudioProjects/TJCPre/app/src/main/res/layout/paintviewer.xml" value="0.18541666666666667" />
         <entry key="..\:/Users/Luis/AndroidStudioProjects/TJCPre/app/src/main/res/layout/tjcphomepage.xml" value="0.33" />
       </map>

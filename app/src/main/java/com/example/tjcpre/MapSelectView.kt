@@ -3,6 +3,7 @@ package com.example.tjcpre
 import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
@@ -18,20 +19,65 @@ class MapSelectView : AppCompatActivity() {
         setContentView(R.layout.mapselectview)
         val listView = findViewById<ListView>(R.id.MapList)
 
-        listView.adapter = CustumAdapter(this)
+        listView.adapter = CustomAdapter(this)
 
 
 
     }
 
-    private class CustumAdapter(context: Context) : BaseAdapter() {
 
+
+    private class CustomAdapter(context: Context) : BaseAdapter() {
+
+        // region Functions
+
+        // Responsible for grabbing a MapInfoString And retuning Grabber class containing
+        // information needed for use in Row Assignment
+        private fun StringGrabber(string: String, pos: Int): GrabberReturnClass {
+            var tempTitle = ""
+            var CharPos = pos
+            val mapInfo = string
+            var tempChar = ' '
+
+            while(tempChar != '|')
+            {
+                //Adds Each char to tempTitle
+                tempChar = mapInfo[CharPos]
+                tempTitle += mapInfo[CharPos]
+                CharPos++
+            }
+
+            CharPos++
+            //example-->
+            //Customs|30 MIN|9-12|Normal|!
+            //        ^
+            //     CharPos++
+
+            return GrabberReturnClass(tempTitle, CharPos)
+        }
+
+
+
+        //endregion
+
+
+        private data class GrabberReturnClass(val MapInfo: String, var Position: Int)
 
         private val mContext: Context = context
 
+        private val mapNames = arrayListOf<String>(
+            "Customs|30 MIN|9-12|Normal|!",
+            "Interchange|40 MIN|10-14|Normal|!",
+            "Reserve|40 MIN|9-12|Hard|!",
+            "Labs|35 MIN|6-10|Hard|!",
+            "Shoreline|45 MIN|10-13|Hard|!",
+            "Factory|20-25 MIN|4-6|Easy|!",
+            "Woods|35 MIN|9-14|Normal|!",
+            "Lighthouse|35 MIN|9-12|Hard|!"
+        )
         // responsible for num of rows
         override fun getCount(): Int {
-            return 8
+            return mapNames.size
         }
 
 
@@ -49,9 +95,136 @@ class MapSelectView : AppCompatActivity() {
         //Responsible for rendering each row
         @SuppressLint("SetTextI18n")
         override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-            val textView = TextView(mContext)
-            textView.text = "Customs"
-            return  textView
+
+            val ListViewInflator = LayoutInflater.from(mContext)
+            val Row = ListViewInflator.inflate(R.layout.mapviewlistrow, parent, false)
+
+            // Ini block
+            val mapTitle = Row.findViewById<TextView>(R.id.mapListView_MapName)
+            val mapTimeRange = Row.findViewById<TextView>(R.id.mapListView_TimeTxt)
+            val mapDifficulty = Row.findViewById<TextView>(R.id.mapListView_DifficultyTxt)
+            val mapPlayerRange = Row.findViewById<TextView>(R.id.mapListView_PlayerRangeTxt)
+
+
+            val mapInfo = mapNames.get(position)
+
+            var _mapTitle = ""
+            var _mapTimeRange = ""
+            var _mapPlayerRange = ""
+            var _mapDificulty = ""
+
+            var tempChar = 'x'
+            var CharPos= 0
+            var itemPos = 0
+            var stringPos = 0
+
+            // responsible for splitting the string up and assigning strings
+            while (tempChar != '!'){
+
+
+                when(stringPos){
+
+                                // region MapName
+                                 0 -> {
+
+                                        val (tempTitle,returnPos) = StringGrabber(mapInfo, CharPos)
+                                        CharPos = returnPos
+
+                                        stringPos++
+                                        // moves position of info Item
+                                        //Customs|30 MIN|9-12|Normal|!
+                                        //       [------]
+                                        //       stringPos
+
+                                        //sets the title for the row
+                                        _mapTitle = tempTitle
+
+                                 }
+                                // endregion
+
+                                // region MapTime
+                                1 -> {
+                                    val (tempTime,returnPos) = StringGrabber(mapInfo, CharPos)
+                                    CharPos = returnPos
+
+                                    stringPos++
+                                    // moves position of info Item
+                                    //Customs|30 MIN|9-12|Normal|!
+                                    //              [----]
+                                    //              stringPos
+
+                                    //sets the title for the row
+                                    _mapTimeRange = tempTime
+
+                                }
+                                //endregion
+
+                                // region PlayerRange
+                                2 -> {
+                                    val (tempPRange,returnPos) = StringGrabber(mapInfo, CharPos)
+                                    CharPos = returnPos
+
+                                    stringPos++
+                                    // moves position of info Item
+                                    //Customs|30 MIN|9-12|Normal|!
+                                    //                   [------]
+                                    //                   stringPos
+
+                                    //sets the title for the row
+                                    _mapPlayerRange = tempPRange
+
+                                }
+                                //endregion
+
+                                // region Difficulty
+                                3 -> {
+                                    val (tempDifficulty,returnPos) = StringGrabber(mapInfo, CharPos)
+                                    CharPos = returnPos
+
+                                    stringPos++
+                                    // moves position of info Item
+                                    //Customs|30 MIN|9-12|Normal|!
+                                    //                   [------]
+                                    //                   stringPos
+
+                                    //sets the title for the row
+                                    _mapDificulty = tempDifficulty
+
+                                }
+                                //endregion
+
+                }
+
+
+                        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                        //              On Final Iteration
+                        //
+                        //      Customs|30 MIN|9-12|Normal|!
+                        //                                 ^
+                        //                              CharPos
+                        //
+                        //          Ending Loop
+                        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                tempChar = mapInfo[CharPos]
+
+            }
+
+            //assigns Text based on row to include each map
+            mapTitle.text = _mapTitle
+            mapTimeRange.text = _mapTimeRange
+            mapPlayerRange.text = _mapPlayerRange
+            mapDifficulty.text = _mapDificulty
+
+
+
+            // Returns the View for the row
+            return Row
+
+
+
+
+
+
         }
 
     }
