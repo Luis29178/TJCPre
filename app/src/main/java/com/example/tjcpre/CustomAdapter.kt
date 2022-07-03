@@ -74,7 +74,7 @@ import android.widget.TextView
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
 
         val ListViewInflator = LayoutInflater.from(mContext)
-        val Row = ListViewInflator.inflate(R.layout.mapviewlistrow, parent, false)
+        val Row : View = ListViewInflator.inflate(R.layout.mapviewlistrow, null)
 
         // Ini block
         val mapTitle = Row.findViewById<TextView>(R.id.mapListView_MapName)
@@ -96,7 +96,7 @@ import android.widget.TextView
         var stringPos = 0
 
         // responsible for splitting the string up and assigning strings
-        while (CharPos < 27){
+        while (CharPos < (mapInfo.length-1)){
             //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             //              On Final Iteration
             //

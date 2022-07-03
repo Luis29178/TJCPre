@@ -3,6 +3,8 @@ package com.example.tjcpre
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 class TJCPHome : AppCompatActivity() {
@@ -12,9 +14,17 @@ class TJCPHome : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.tjcphomepage)
 
+        val TJCPimgView : ImageView =  findViewById(R.id.TJCPTitle)
+        TJCPimgView.setImageResource(R.drawable.tjcpwareagle)
+
+        val EFTtxt : Button = findViewById(R.id.EscapeFromTarkove)
+        val Pathstxt : Button = findViewById(R.id.Paths)
+        val ItemTrakertxt : Button = findViewById(R.id.ItemTraker)
+        val Logintxt : Button = findViewById(R.id.Login)
+
         findViewById<Button>(R.id.EscapeFromTarkove).setOnClickListener{
 
-            ///TODO: change to switch to map selecting activity Screen
+
             // TEMP: Switches to MapView Mode
             val intent = Intent(this,MapSelectView::class.java)
             startActivity(intent)
