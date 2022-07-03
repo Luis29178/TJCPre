@@ -38,7 +38,9 @@ class TJCPHome : AppCompatActivity() {
         }
         findViewById<Button>(R.id.Paths).setOnClickListener{
 
-            ///TODO: change to switch to Paths Screen
+
+            val intent = Intent(this,PathSelectView::class.java)
+            startActivity(intent)
 
         }
         findViewById<Button>(R.id.Login).setOnClickListener{
