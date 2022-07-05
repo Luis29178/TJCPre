@@ -45,8 +45,8 @@ class TJCPHome : AppCompatActivity() {
         }
         findViewById<Button>(R.id.Login).setOnClickListener{
 
-            ///TODO: change to switch to Login Screen
-
+            val intent = Intent(this,LogInView::class.java)
+            startActivity(intent)
         }
 
 
