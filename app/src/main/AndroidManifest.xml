@@ -86,6 +86,13 @@
             android:name=".CreateUserView">
         </activity>
 
+        <activity
+            android:exported="true"
+            android:name=".ItemTrackerView">
+        </activity>
+
+
+
 
 
     </application>

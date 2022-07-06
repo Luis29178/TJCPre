@@ -20,7 +20,7 @@ class PathSelectView : AppCompatActivity() {
         val mapTitle = findViewById<TextView>(R.id.MapTitle)
         mapTitle.text = "Paths"
         val listView = findViewById<ListView>(R.id.MapList)
-        listView.adapter = CustomAdapter(this)
+        listView.adapter = CustomMapViewAdapter(this)
 
 
         listView.isClickable = true

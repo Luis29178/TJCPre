@@ -17,10 +17,6 @@ class TJCPHome : AppCompatActivity() {
         val TJCPimgView : ImageView =  findViewById(R.id.TJCPTitle)
         TJCPimgView.setImageResource(R.drawable.tjcpwareagle)
 
-        val EFTtxt : Button = findViewById(R.id.EscapeFromTarkove)
-        val Pathstxt : Button = findViewById(R.id.Paths)
-        val ItemTrakertxt : Button = findViewById(R.id.ItemTraker)
-        val Logintxt : Button = findViewById(R.id.Login)
 
         findViewById<Button>(R.id.EscapeFromTarkove).setOnClickListener{
 
@@ -33,7 +29,8 @@ class TJCPHome : AppCompatActivity() {
         }
         findViewById<Button>(R.id.ItemTraker).setOnClickListener{
 
-            ///TODO: change to switch Item Tracker Screen
+            val intent = Intent(this,ItemTrackerView::class.java)
+            startActivity(intent)
 
         }
         findViewById<Button>(R.id.Paths).setOnClickListener{

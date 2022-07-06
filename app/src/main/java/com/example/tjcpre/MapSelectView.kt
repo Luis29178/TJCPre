@@ -20,7 +20,7 @@ class MapSelectView : AppCompatActivity() {
         val mapTitle = findViewById<TextView>(R.id.MapTitle)
         mapTitle.text = "Maps"
         val listView = findViewById<ListView>(R.id.MapList)
-        listView.adapter = CustomAdapter(this)
+        listView.adapter = CustomMapViewAdapter(this)
 
 
         listView.isClickable = true
@@ -92,6 +92,9 @@ class MapSelectView : AppCompatActivity() {
 
 
             }
+
+
+
         }
 
 

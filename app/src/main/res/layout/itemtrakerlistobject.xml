@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/black"
+    android:layout_width="match_parent"
+    android:layout_height="125dp"
+  >
+
+
+    <ImageView
+        android:id="@+id/ItemTracker_ListItemimg"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.48"
+        tools:srcCompat="@drawable/item_bitcoin" />
+
+    <TextView
+        android:id="@+id/ItemTracker_ListItemName"
+        android:layout_width="275dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:text="Bitcoin"
+        android:textColor="@color/white"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ItemTracker_ListItemimg"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/ItemTracker_ItemCountTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="16dp"
+        android:text="Count"
+        android:textColor="@color/white"
+        android:textStyle="italic"
+        app:layout_constraintStart_toEndOf="@+id/ItemTracker_ListItemimg"
+        app:layout_constraintTop_toBottomOf="@+id/ItemTracker_ListItemName" />
+
+    <TextView
+        android:id="@+id/ItemTracker_ListItemCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="4dp"
+        android:text="0"
+        android:textColor="@color/white"
+        android:textSize="24dp"
+        app:layout_constraintStart_toEndOf="@+id/ItemTracker_ListItemimg"
+        app:layout_constraintTop_toBottomOf="@+id/ItemTracker_ItemCountTxt" />
+
+    <Button
+        android:id="@+id/ItemTracker_ItemCountMinus"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="6dp"
+        android:backgroundTint="@color/black"
+        android:text="-"
+        app:layout_constraintEnd_toStartOf="@+id/ItemTracker_ItemCountTxt"
+        app:layout_constraintStart_toEndOf="@+id/ItemTracker_ListItemimg"
+        app:layout_constraintTop_toBottomOf="@+id/ItemTracker_ListItemName" />
+
+    <Button
+        android:id="@+id/ItemTracker_ItemCountPlus"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="57dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/black"
+        android:text="+"
+        app:layout_constraintStart_toEndOf="@+id/ItemTracker_ItemCountMinus"
+        app:layout_constraintTop_toBottomOf="@+id/ItemTracker_ListItemName" />
+
+    <ImageButton
+        android:id="@+id/ItemTracker_ItemInfo"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ItemTracker_ItemCountPlus"
+        app:layout_constraintTop_toBottomOf="@+id/ItemTracker_ListItemName"
+        app:srcCompat="@android:drawable/ic_menu_info_details" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
 
- class CustomAdapter(val context: Context) : BaseAdapter() {
+ class CustomMapViewAdapter(val context: Context) : BaseAdapter() {
 
     // region Functions
 
