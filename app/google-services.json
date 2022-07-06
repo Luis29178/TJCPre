@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "490792043758",
+    "project_id": "tjcpre-databse",
+    "storage_bucket": "tjcpre-databse.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:490792043758:android:7d4f36bb810625bb3ddfff",
+        "android_client_info": {
+          "package_name": "com.example.tjcpre"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "490792043758-vu3o19b8ni68sc44f1cocldb3057hgdj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tjcpre",
+            "certificate_hash": "a8bbe8952309a7a3227cf97e1f8602da7d5a46ae"
+          }
+        },
+        {
+          "client_id": "490792043758-rkl1lfh1i3o6tv271nlcuucrkbs4maec.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdq_Y0Vgl6OTGa1pude0aKu_HocsxSihI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "490792043758-rkl1lfh1i3o6tv271nlcuucrkbs4maec.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

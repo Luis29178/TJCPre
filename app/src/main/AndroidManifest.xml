@@ -15,7 +15,6 @@
         // TJCPHome Activity Declaration
         <activity android:exported="true"
         android:name=".TJCPHome">
-        android:exported="false"
         <intent-filter >
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />
@@ -25,49 +24,41 @@
         <activity
             android:exported="true"
             android:name=".CustomsRaidMode">
-            android:exported="false"
         </activity>
 
         <activity
             android:exported="true"
             android:name=".InterchangeRaidMode">
-            android:exported="false"
         </activity>
 
         <activity
             android:exported="true"
             android:name=".FactoryRaidMode">
-            android:exported="false"
         </activity>
 
         <activity
             android:exported="true"
             android:name=".ReserveRaidMode">
-            android:exported="false"
         </activity>
 
         <activity
             android:exported="true"
             android:name=".LabsRaidMode">
-            android:exported="false"
         </activity>
 
         <activity
             android:exported="true"
             android:name=".LighthouseRaidMode">
-            android:exported="false"
         </activity>
 
         <activity
             android:exported="true"
             android:name=".WoodsRaidMode">
-            android:exported="false"
         </activity>
 
         <activity
             android:exported="true"
             android:name=".ShorelineRaidMode">
-            android:exported="false"
         </activity>
 
 
@@ -78,20 +69,23 @@
         <activity
             android:exported="true"
             android:name=".MapSelectView">
-            android:exported="false"
         </activity>
 
         <activity
             android:exported="true"
             android:name=".PathSelectView">
-            android:exported="false"
         </activity>
 
         <activity
             android:exported="true"
             android:name=".LogInView">
-            android:exported="false"
         </activity>
+
+        <activity
+            android:exported="true"
+            android:name=".CreateUserView">
+        </activity>
+
 
 
     </application>
