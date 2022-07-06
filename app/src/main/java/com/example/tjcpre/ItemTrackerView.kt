@@ -1,10 +1,8 @@
 package com.example.tjcpre
 
-import android.content.Intent
 import android.os.Bundle
-import android.widget.ArrayAdapter
-import android.widget.ListView
-import android.widget.TextView
+import android.view.View
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 
 class ItemTrackerView : AppCompatActivity() {
@@ -13,10 +11,15 @@ class ItemTrackerView : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.mapselectview)
+        setContentView(R.layout.itemtraker)
         val Database_ItemName = ArrayList<String>()
-        val listView = findViewById<ListView>(R.id.MapList)
+        val listView = findViewById<ListView>(R.id.ItemTrakerListView)
         listView.adapter = CustomItemTrackerViewAdapter(this)
+        listView.isClickable = true
+
+
+
+
 
 
     }

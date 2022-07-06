@@ -91,6 +91,11 @@
             android:name=".ItemTrackerView">
         </activity>
 
+        <activity
+            android:exported="true"
+            android:name=".ItemInfoView">
+        </activity>
+
 
 
 

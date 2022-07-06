@@ -2,11 +2,13 @@ package com.example.tjcpre
 
 import android.content.ContentValues.TAG
 import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.core.content.ContextCompat.startActivity
 import com.google.firebase.database.*
 import com.google.firebase.database.ktx.getValue
 
@@ -41,11 +43,30 @@ class CustomItemTrackerViewAdapter(val context: Context) : BaseAdapter() {
 
         val itemNameTxt = Row.findViewById<TextView>(R.id.ItemTracker_ListItemName)
         val itemImg = Row.findViewById<ImageView>(R.id.ItemTracker_ListItemimg)
-        val CountupButton = Row.findViewById<Button>(R.id.ItemTracker_ItemCountPlus)
-        val CountDownButton = Row.findViewById<Button>(R.id.ItemTracker_ItemCountMinus)
-        val itemCount = Row.findViewById<TextView>(R.id.ItemTracker_ListItemCount)
+        val CountUpButton = Row.findViewById<Button>(R.id.ItemTracker_ItemCountPlus)
+        val CountDownButton =  Row.findViewById<Button>(R.id.ItemTracker_ItemCountMinus)
+        val CountText = Row.findViewById<TextView>(R.id.ItemTracker_ListItemCount)
+        val InfoButton =  Row.findViewById<ImageView>(R.id.ItemTracker_ItemInfo)
 
-        itemDatabase = FirebaseDatabase.getInstance().getReference(position.toString())
+
+        CountUpButton.setOnClickListener{
+            var temp = CountText.text.toString().toInt()
+            temp++
+            CountText.text = temp.toString()
+        }
+        CountDownButton.setOnClickListener{
+            var temp = CountText.text.toString().toInt()
+            temp--
+            CountText.text = temp.toString()
+        }
+       InfoButton.setOnClickListener{
+            var intent = Intent(mContext,ItemInfoView::class.java)
+            intent.putExtra("itemName", itemNameTxt.text.toString())
+            mContext.startActivity(intent)
+        }
+
+
+        itemDatabase = FirebaseDatabase.getInstance().getReference(((position +1).toString()))
             itemDatabase.child("Name").get().addOnSuccessListener {
 
                 //TODO: Implement and Initialize other data with databse once the databse has been prepared
