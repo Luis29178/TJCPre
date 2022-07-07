@@ -29,7 +29,7 @@ class TJCPHome : AppCompatActivity() {
         }
         findViewById<Button>(R.id.ItemTraker).setOnClickListener{
 
-            val intent = Intent(this,ItemTrackerView::class.java)
+            val intent = Intent(this,ItemTrackerMenuView::class.java)
             startActivity(intent)
 
         }
