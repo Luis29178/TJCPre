@@ -10,9 +10,14 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
 
+
 class LogInView: AppCompatActivity(){
     //lateinit var dataBase : DatabaseRefrence
     private var mAuth : FirebaseAuth = FirebaseAuth.getInstance();
+
+    companion object{
+        var LoggedIn : Boolean = false
+    }
 
 
 
@@ -76,6 +81,7 @@ class LogInView: AppCompatActivity(){
                             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                             intent.putExtra("user_id", user.uid)
                             intent.putExtra("User_email",InputEmail)
+                            LoggedIn = true
                             startActivity(intent)
                             finish()
 
