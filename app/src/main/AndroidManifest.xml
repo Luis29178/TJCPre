@@ -96,6 +96,11 @@
             android:name=".ItemInfoView">
         </activity>
 
+        <activity
+            android:exported="true"
+            android:name=".ItemTrackerMenuView">
+        </activity>
+
 
 
 
