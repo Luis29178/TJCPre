@@ -101,6 +101,7 @@ class PaintView : View {
 
             for (i in PathL.indices) {
                 Thread.sleep(25)
+                PathL[i].rewind()
                 invalidate() //informs non-ui threds of changes on the UI
 
             }
