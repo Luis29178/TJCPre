@@ -15,7 +15,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/custumsmapog"
-        android:contentDescription="@string/Customs" />
+        android:contentDescription="@string/Customs" >
+        <include layout="@layout/paintviewer" />
+    </ImageView>
+
 
     <RelativeLayout
         android:id="@+id/Customs_PaintViewer"
@@ -24,7 +27,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-        <include layout="@layout/paintviewer"/>
+
 
     </RelativeLayout>
 
