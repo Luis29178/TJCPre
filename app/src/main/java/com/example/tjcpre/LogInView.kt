@@ -1,6 +1,7 @@
 package com.example.tjcpre
 
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -26,6 +27,7 @@ class LogInView: AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.log_in_page)
+        this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
 
         val LogInButton = findViewById(R.id.Login_button) as Button
         val CreateAccountButton = findViewById(R.id.CreateAccountButton) as Button

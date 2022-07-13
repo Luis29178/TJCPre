@@ -1,6 +1,7 @@
 package com.example.tjcpre
 
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.widget.ListView
 import android.widget.TextView
@@ -15,6 +16,7 @@ class PathSelectView : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.mapselectview)
+        this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
 
 
         val mapTitle = findViewById<TextView>(R.id.MapTitle)

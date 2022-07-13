@@ -13,12 +13,15 @@ import android.view.ViewGroup
 import com.example.tjcpre.CustomsRaidMode.Companion.brush
 import com.example.tjcpre.CustomsRaidMode.Companion.path
 
+
 class PaintView : View {
 
         var params: ViewGroup.LayoutParams? = null
 
 
+
         companion object {
+            // TODO: check If yu can use these companion Objects to reset or save paths !!!!!!!!????????
             var PathL = arrayListOf<Path>()
             var ColorL = ArrayList<Int>()
             var CurrBrush = Color.BLACK
@@ -54,6 +57,7 @@ class PaintView : View {
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT
             )
+
         }
 
 
@@ -62,11 +66,17 @@ class PaintView : View {
         //TODO: Add Clickable method for Descktop Version
 
         override fun onTouchEvent(event: MotionEvent): Boolean {
+
+
             val x = event.x
             val y = event.y
 
+
+
+
             when (event.action) {
                 MotionEvent.ACTION_DOWN -> {
+
 
 
                     path.moveTo(x, y)

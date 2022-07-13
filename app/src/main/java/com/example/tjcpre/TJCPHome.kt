@@ -1,6 +1,7 @@
 package com.example.tjcpre
 
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.graphics.Paint
 import android.graphics.Path
 import android.os.Bundle
@@ -32,6 +33,7 @@ class TJCPHome : AppCompatActivity() {
                 startActivity(intent)
             }
         }
+        this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
 
         val TJCPimgView : ImageView =  findViewById(R.id.TJCPTitle)
         TJCPimgView.setImageResource(R.drawable.tjcpwareagle)
