@@ -14,6 +14,8 @@ class CustomItemTrackerViewAdapter(val context: Context) : BaseAdapter() {
 
 
 
+
+
     // Will return Count of Items in Database Based on Item "0"'s Info
     override fun getCount(): Int {
 
