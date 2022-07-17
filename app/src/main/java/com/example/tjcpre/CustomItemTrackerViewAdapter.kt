@@ -1,24 +1,25 @@
 package com.example.tjcpre
 
-import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.core.content.ContextCompat.startActivity
 import com.google.firebase.database.*
-import com.google.firebase.database.ktx.getValue
+
 
 class CustomItemTrackerViewAdapter(val context: Context) : BaseAdapter() {
     private lateinit var itemDatabase : DatabaseReference
 
 
+
+
+
+    // Will return Count of Items in Database Based on Item "0"'s Info
     override fun getCount(): Int {
-        //TODO: Implement
-        return 1000
+
+        return 2158
     }
 
 
