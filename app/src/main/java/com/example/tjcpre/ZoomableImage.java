@@ -8,6 +8,7 @@ import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 
 
+
 public class ZoomableImage extends androidx.appcompat.widget.AppCompatImageView
 {
     Matrix matrix = new Matrix();
@@ -39,8 +40,11 @@ public class ZoomableImage extends androidx.appcompat.widget.AppCompatImageView
     float bmWidth;
     float bmHeight;
 
+
     ScaleGestureDetector mScaleDetector;
     Context context;
+
+
 
     public ZoomableImage(Context context, AttributeSet attr)
     {
@@ -56,103 +60,105 @@ public class ZoomableImage extends androidx.appcompat.widget.AppCompatImageView
         setScaleType(ScaleType.MATRIX);
 
 
-        setOnTouchListener((v, event) -> {
-            mScaleDetector.onTouchEvent(event);
+            setOnTouchListener((v, event) -> {
+                mScaleDetector.onTouchEvent(event);
 
-            matrix.getValues(m);
-            float x = m[Matrix.MTRANS_X];
-            float y = m[Matrix.MTRANS_Y];
-            PointF curr = new PointF(event.getX(), event.getY());
+                matrix.getValues(m);
+                float x = m[Matrix.MTRANS_X];
+                float y = m[Matrix.MTRANS_Y];
+                PointF curr = new PointF(event.getX(), event.getY());
 
-            switch (event.getAction())
-            {
-                //when one finger is touching
-                //set the mode to IMAGE_VIEW_MODE_DRAG
-                //TODO: Add Method of including paintView or share a mode That would prevent actoins from overlaping
 
-                case MotionEvent.ACTION_DOWN:
-                    last.set(event.getX(), event.getY());
-                    start.set(last);
-                    mode = IMAGE_VIEW_MODE_DRAG;
-                    break;
-                //when two fingers are touching
-                //set the mode to IMAGE_VIEW_MODE_ZOOM and sets pointers to get scale
-                case MotionEvent.ACTION_POINTER_DOWN:
-                    last.set(event.getX(), event.getY());
-                    start.set(last);
-                    mode = IMAGE_VIEW_MODE_ZOOM;
-                    break;
-                //when a finger moves
-                //If mode is applicable move image
-                case MotionEvent.ACTION_MOVE:
-                    //if the mode is IMAGE_VIEW_MODE_ZOOM or
-                    //if the mode is IMAGE_VIEW_MODE_DRAG and already zoomed
-                    if (mode == IMAGE_VIEW_MODE_ZOOM || (mode == IMAGE_VIEW_MODE_DRAG && saveScale > minScale))
-                    {
-                        float deltaX = curr.x - last.x;// x difference
-                        float deltaY = curr.y - last.y;// y difference
-                        float scaleWidth = Math.round(origWidth * saveScale);// width after applying current scale
-                        float scaleHeight = Math.round(origHeight * saveScale);// height after applying current scale
-                        //if scaleWidth is smaller than the views width in
-                        //other words if the image width fits in the view
-                        //limit left and right movement
-                        if (scaleWidth < width)
-                        {
-                            deltaX = 0;
-                            if (y + deltaY > 0)
-                                deltaY = -y;
-                            else if (y + deltaY < -bottom)
-                                deltaY = -(y + bottom);
+
+                switch (event.getAction()) {
+                    //when one finger is touching
+                    //set the mode to IMAGE_VIEW_MODE_DRAG
+                    //TODO: Add Method of including paintView or share a mode That would prevent actoins from overlaping
+
+                    case MotionEvent.ACTION_DOWN:
+                        last.set(event.getX(), event.getY());
+                        start.set(last);
+                        mode = IMAGE_VIEW_MODE_DRAG;
+                        break;
+                    //when two fingers are touching
+                    //set the mode to IMAGE_VIEW_MODE_ZOOM and sets pointers to get scale
+                    case MotionEvent.ACTION_POINTER_DOWN:
+                        last.set(event.getX(), event.getY());
+                        start.set(last);
+                        mode = IMAGE_VIEW_MODE_ZOOM;
+                        break;
+                    //when a finger moves
+                    //If mode is applicable move image
+                    case MotionEvent.ACTION_MOVE:
+                        //if the mode is IMAGE_VIEW_MODE_ZOOM or
+                        //if the mode is IMAGE_VIEW_MODE_DRAG and already zoomed
+                        if (mode == IMAGE_VIEW_MODE_ZOOM || (mode == IMAGE_VIEW_MODE_DRAG && saveScale > minScale)) {
+                            float deltaX = curr.x - last.x;// x difference
+                            float deltaY = curr.y - last.y;// y difference
+                            float scaleWidth = Math.round(origWidth * saveScale);// width after applying current scale
+                            float scaleHeight = Math.round(origHeight * saveScale);// height after applying current scale
+                            //if scaleWidth is smaller than the views width in
+                            //other words if the image width fits in the view
+                            //limit left and right movement
+                            if (scaleWidth < width) {
+                                deltaX = 0;
+                                if (y + deltaY > 0)
+                                    deltaY = -y;
+                                else if (y + deltaY < -bottom)
+                                    deltaY = -(y + bottom);
+                            }
+                            //if scaleHeight is smaller than the views height
+                            //in other words if the image height fits in the view
+                            //limit up and down movement
+                            else if (scaleHeight < height) {
+                                deltaY = 0;
+                                if (x + deltaX > 0)
+                                    deltaX = -x;
+                                else if (x + deltaX < -right)
+                                    deltaX = -(x + right);
+                            }
+                            //if the image doesnt fit in the width or height
+                            //limit both up and down and left and right
+                            else {
+                                if (x + deltaX > 0)
+                                    deltaX = -x;
+                                else if (x + deltaX < -right)
+                                    deltaX = -(x + right);
+
+                                if (y + deltaY > 0)
+                                    deltaY = -y;
+                                else if (y + deltaY < -bottom)
+                                    deltaY = -(y + bottom);
+                            }
+                            //move the image with the matrix
+                            matrix.postTranslate(deltaX, deltaY);
+                            //set the last touch location to the current
+                            last.set(curr.x, curr.y);
                         }
-                        //if scaleHeight is smaller than the views height
-                        //in other words if the image height fits in the view
-                        //limit up and down movement
-                        else if (scaleHeight < height)
-                        {
-                            deltaY = 0;
-                            if (x + deltaX > 0)
-                                deltaX = -x;
-                            else if (x + deltaX < -right)
-                                deltaX = -(x + right);
-                        }
-                        //if the image doesnt fit in the width or height
-                        //limit both up and down and left and right
-                        else
-                        {
-                            if (x + deltaX > 0)
-                                deltaX = -x;
-                            else if (x + deltaX < -right)
-                                deltaX = -(x + right);
+                        break;
+                    //first finger is lifted
+                    case MotionEvent.ACTION_UP:
+                        mode = IMAGE_VIEW_MODE_DONE;
+                        int xDiff = (int) Math.abs(curr.x - start.x);
+                        int yDiff = (int) Math.abs(curr.y - start.y);
+                        //Helps user perform ACTION_POINTER_DOWN
+                        if (xDiff < IMAGE_VIEW_MODE_CLICK && yDiff < IMAGE_VIEW_MODE_CLICK)
+                            performClick();
+                        break;
+                    // second finger is lifted
+                    case MotionEvent.ACTION_POINTER_UP:
+                        mode = IMAGE_VIEW_MODE_DONE;
+                        break;
+                }
+                setImageMatrix(matrix);
+                invalidate();
+                return true;
+            });
 
-                            if (y + deltaY > 0)
-                                deltaY = -y;
-                            else if (y + deltaY < -bottom)
-                                deltaY = -(y + bottom);
-                        }
-                        //move the image with the matrix
-                        matrix.postTranslate(deltaX, deltaY);
-                        //set the last touch location to the current
-                        last.set(curr.x, curr.y);
-                    }
-                    break;
-                //first finger is lifted
-                case MotionEvent.ACTION_UP:
-                    mode = IMAGE_VIEW_MODE_DONE;
-                    int xDiff = (int) Math.abs(curr.x - start.x);
-                    int yDiff = (int) Math.abs(curr.y - start.y);
-                    //Helps user perform ACTION_POINTER_DOWN
-                    if (xDiff < IMAGE_VIEW_MODE_CLICK && yDiff < IMAGE_VIEW_MODE_CLICK)
-                        performClick();
-                    break;
-                // second finger is lifted
-                case MotionEvent.ACTION_POINTER_UP:
-                    mode = IMAGE_VIEW_MODE_DONE;
-                    break;
-            }
-            setImageMatrix(matrix);
-            invalidate();
-            return true;
-        });
+
+
+
+
     }
 
     public ZoomableImage(Context context) {

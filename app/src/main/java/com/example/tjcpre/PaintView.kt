@@ -14,9 +14,14 @@ import com.example.tjcpre.CustomsRaidMode.Companion.brush
 import com.example.tjcpre.CustomsRaidMode.Companion.path
 
 
+
 class PaintView : View {
 
         var params: ViewGroup.LayoutParams? = null
+
+
+
+
 
 
 
@@ -25,6 +30,7 @@ class PaintView : View {
             var PathL = arrayListOf<Path>()
             var ColorL = ArrayList<Int>()
             var CurrBrush = Color.BLACK
+
 
         }
 
@@ -68,33 +74,40 @@ class PaintView : View {
         override fun onTouchEvent(event: MotionEvent): Boolean {
 
 
+
+
             val x = event.x
             val y = event.y
 
 
 
 
-            when (event.action) {
-                MotionEvent.ACTION_DOWN -> {
+
+                //TODO: disable paintview actions if in move mode
+                if(this.isClickable) {
+
+                    when (event.action) {
+                        MotionEvent.ACTION_DOWN -> {
 
 
+                            path.moveTo(x, y)
+                            return true
 
-                    path.moveTo(x, y)
-                    return true
+                        }
+                        MotionEvent.ACTION_MOVE -> {
+                            path.lineTo(x, y)
+                            PathL.add(path)
+                            ColorL.add(CurrBrush)
+                        }
+                        MotionEvent.ACTION_UP -> {
+                            resetPath() // replace with sequential delete with bitmap array to save states of the path beeing drawn to then reset it bit by bit will give smooth transition
 
+                        }
+                        else -> return false
+
+                    }
                 }
-                MotionEvent.ACTION_MOVE -> {
-                    path.lineTo(x, y)
-                    PathL.add(path)
-                    ColorL.add(CurrBrush)
-                }
-                MotionEvent.ACTION_UP -> {
-                    resetPath() // replace with sequential delete with bitmap array to save states of the path beeing drawn to then reset it bit by bit will give smooth transition
 
-                }
-                else -> return false
-
-            }
 
 
             postInvalidate()        //informs non-ui threds of changes on the UI
@@ -136,4 +149,6 @@ class PaintView : View {
 
 
         }
+
+
 }
