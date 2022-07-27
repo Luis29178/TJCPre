@@ -18,6 +18,7 @@ class LogInView: AppCompatActivity(){
 
     companion object{
         var LoggedIn : Boolean = false
+        var authUId : String = ""
     }
 
 

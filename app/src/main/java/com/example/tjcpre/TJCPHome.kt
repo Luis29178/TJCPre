@@ -17,9 +17,11 @@ class TJCPHome : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val userId = intent.getStringExtra("user_id")
+
         if (LoggedIn){
             setContentView(R.layout.tjcphomepagelogedin)
+
+            val userId = intent.getStringExtra("user_id")
             val userIdTxt = findViewById<TextView>(R.id.UserId)
             userIdTxt.text = userId.toString()
 
@@ -28,7 +30,6 @@ class TJCPHome : AppCompatActivity() {
             setContentView(R.layout.tjcphomepage)
 
             findViewById<Button>(R.id.Login).setOnClickListener{
-
                 val intent = Intent(this,LogInView::class.java)
                 startActivity(intent)
             }
