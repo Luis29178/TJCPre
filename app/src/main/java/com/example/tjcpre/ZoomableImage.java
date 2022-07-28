@@ -6,7 +6,11 @@ import android.graphics.PointF;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
-
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class ZoomableImage extends androidx.appcompat.widget.AppCompatImageView
@@ -161,6 +165,7 @@ public class ZoomableImage extends androidx.appcompat.widget.AppCompatImageView
 
     }
 
+
     public ZoomableImage(Context context) {
         super(context);
     }
@@ -251,12 +256,43 @@ public class ZoomableImage extends androidx.appcompat.widget.AppCompatImageView
                         matrix.postTranslate(0, -y);
                 }
             }
+
+            FirebaseFirestore dataBase = FirebaseFirestore.getInstance();
+            DocumentReference RaidDoc = dataBase.document("RaidData/InstanceID");
+
+
+            Map<String,Float> UploadFocusX = new HashMap<>();
+            UploadFocusX.put("FocusX",detector.getFocusX());
+            RaidDoc.set(UploadFocusX, SetOptions.merge());
+
+            Map<String,Float> UploadFocusY = new HashMap<>();
+            UploadFocusY.put("FocusY",detector.getFocusY());
+            RaidDoc.set(UploadFocusY, SetOptions.merge());
+
+            Map<String,Float> Uploadright = new HashMap<>();
+            Uploadright.put("right",right);
+            RaidDoc.set(Uploadright, SetOptions.merge());
+
+            Map<String,Float> Uploadbottom = new HashMap<>();
+            Uploadbottom.put("bottom",bottom);
+            RaidDoc.set(Uploadbottom, SetOptions.merge());
+
+            Map<String,Float> UploadmScaleFactor = new HashMap<>();
+            UploadmScaleFactor.put("mScaleFactor",mScaleFactor);
+            RaidDoc.set(UploadmScaleFactor, SetOptions.merge());
+
+
+
+
             return true;
         }
     }
 
 
     // this function is responsible for fitting the image to the screen
+
+    // use this function to share the paramters for changes in other users devices
+    // must send scaleX, scaleY, redundantYSpace, redundantXSpace, width, height
     @Override
     protected void onMeasure (int widthMeasureSpec, int heightMeasureSpec)
     {
@@ -272,6 +308,7 @@ public class ZoomableImage extends androidx.appcompat.widget.AppCompatImageView
         setImageMatrix(matrix);
         saveScale = 1f;
 
+
         // Center the image
         redundantYSpace = height - (scale * bmHeight) ;
         redundantXSpace = width - (scale * bmWidth);
@@ -284,6 +321,38 @@ public class ZoomableImage extends androidx.appcompat.widget.AppCompatImageView
         origHeight = height - 2 * redundantYSpace;
         right = width * saveScale - width - (2 * redundantXSpace * saveScale);
         bottom = height * saveScale - height - (2 * redundantYSpace * saveScale);
+
+        //FirebaseFirestore dataBase = FirebaseFirestore.getInstance();
+        //DocumentReference UserItemDoc = dataBase.document("RaidData/InstanceID");
+        // Uploads Data of image On the initial call
+       /*
+
+       Map<String,Float> UploadWidth = new HashMap<>();
+        UploadWidth.put("width",width);
+        UserItemDoc.set(UploadWidth, SetOptions.merge());
+
+        Map<String,Float> UploadHeight = new HashMap<>();
+        UploadHeight.put("height",height);
+        UserItemDoc.set(UploadHeight, SetOptions.merge());
+
+        Map<String,Float> UploadscaleX = new HashMap<>();
+        UploadscaleX.put("scaleX",scaleX);
+        UserItemDoc.set(UploadscaleX, SetOptions.merge());
+
+        Map<String,Float> UploadscaleY = new HashMap<>();
+        UploadscaleY.put("scaleY",scaleY);
+        UserItemDoc.set(UploadscaleY, SetOptions.merge());
+
+        Map<String,Float> UploadredundantYSpace = new HashMap<>();
+        UploadredundantYSpace.put("redundantYSpace",redundantYSpace);
+        UserItemDoc.set(UploadredundantYSpace, SetOptions.merge());
+
+        Map<String,Float> UploadredundantXSpace = new HashMap<>();
+        UploadredundantXSpace.put("redundantXSpace",redundantXSpace);
+        UserItemDoc.set(UploadredundantXSpace, SetOptions.merge());
+        */
+
+
         setImageMatrix(matrix);
     }
 }

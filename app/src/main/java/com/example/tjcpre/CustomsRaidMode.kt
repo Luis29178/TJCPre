@@ -33,6 +33,8 @@ class CustomsRaidMode : AppCompatActivity(){
 
 
 
+
+
         var paintView: View = findViewById(R.id.Internal_Paintviewer)
         paintView.isClickable = false
 
