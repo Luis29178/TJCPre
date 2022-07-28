@@ -7,26 +7,15 @@
     tools:context=".CustomsRaidMode">
 
 
-    <ImageView
+    <com.example.tjcpre.ZoomableImage
         android:id="@+id/ShorelineMap"
-        android:layout_width="732dp"
-        android:layout_height="382dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/shorelinemap"
         android:contentDescription="@string/Shoreline" />
 
-    <RelativeLayout
-        android:id="@+id/Shoreline_PaintViewer"
-        android:layout_width="732dp"
-        android:layout_height="382dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-        <include layout="@layout/paintviewer"/>
-
-    </RelativeLayout>
 
 
 

@@ -1,6 +1,7 @@
 package com.example.tjcpre
 
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -14,6 +15,7 @@ class CreateUserView : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.create_user_page)
+        this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
 
         val UsernameInput  = findViewById<EditText>(R.id.EditCreateUserString)
         val PasswordInput  = findViewById<EditText>(R.id.EditCreatePassworedString)

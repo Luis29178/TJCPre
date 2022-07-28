@@ -4,29 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CustomsRaidMode">
+    tools:context=".CustomsRaidMode"
+    android:orientation="horizontal">
 
 
-    <ImageView
+    <com.example.tjcpre.ZoomableImage
         android:id="@+id/LighthouseMap"
-        android:layout_width="732dp"
-        android:layout_height="382dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/lighthousemap"
         android:contentDescription="@string/Lighthouse" />
-
-    <RelativeLayout
-        android:id="@+id/Lighthouse_PaintViewer"
-        android:layout_width="732dp"
-        android:layout_height="382dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-        <include layout="@layout/paintviewer"/>
-
-    </RelativeLayout>
 
 
 

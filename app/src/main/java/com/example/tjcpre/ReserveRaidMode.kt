@@ -1,5 +1,7 @@
 package com.example.tjcpre
 
+import android.content.pm.ActivityInfo
+import android.graphics.BitmapFactory
 import android.graphics.Paint
 import android.graphics.Path
 import android.os.Bundle
@@ -13,9 +15,12 @@ class ReserveRaidMode : AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
         setContentView(R.layout.reserve_raid_mode)
+        this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
+
+        var ReserveMap : ZoomableImage = findViewById(R.id.ReserveMap)
+        ReserveMap.setImageBitmap(BitmapFactory.decodeResource(resources,R.drawable.reservemap))
+
 
 
 

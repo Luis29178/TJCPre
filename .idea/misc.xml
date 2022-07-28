@@ -4,19 +4,19 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Luis/AndroidStudioProjects/TJCPre/app/src/main/res/layout-land/activity_map_pathing.xml" value="0.27028218694885364" />
-        <entry key="..\:/Users/Luis/AndroidStudioProjects/TJCPre/app/src/main/res/layout-land/customs_raid_mode.xml" value="0.15299823633156967" />
-        <entry key="..\:/Users/Luis/AndroidStudioProjects/TJCPre/app/src/main/res/layout-land/factory_raid_mode.xml" value="0.15299823633156967" />
+        <entry key="..\:/Users/Luis/AndroidStudioProjects/TJCPre/app/src/main/res/layout-land/customs_raid_mode.xml" value="0.1" />
+        <entry key="..\:/Users/Luis/AndroidStudioProjects/TJCPre/app/src/main/res/layout-land/factory_raid_mode.xml" value="0.1" />
         <entry key="..\:/Users/Luis/AndroidStudioProjects/TJCPre/app/src/main/res/layout-land/interchange_raid_mode.xml" value="0.15299823633156967" />
         <entry key="..\:/Users/Luis/AndroidStudioProjects/TJCPre/app/src/main/res/layout-land/labs_raid_mode.xml" value="0.15299823633156967" />
         <entry key="..\:/Users/Luis/AndroidStudioProjects/TJCPre/app/src/main/res/layout-land/lighthouse_raid_mode.xml" value="0.15299823633156967" />
-        <entry key="..\:/Users/Luis/AndroidStudioProjects/TJCPre/app/src/main/res/layout-land/paintviewer.xml" value="0.15696649029982362" />
+        <entry key="..\:/Users/Luis/AndroidStudioProjects/TJCPre/app/src/main/res/layout-land/paintviewer.xml" value="0.22" />
         <entry key="..\:/Users/Luis/AndroidStudioProjects/TJCPre/app/src/main/res/layout-land/reserve_raid_mode.xml" value="0.15299823633156967" />
         <entry key="..\:/Users/Luis/AndroidStudioProjects/TJCPre/app/src/main/res/layout-land/shoreline_raid_mode.xml" value="0.15299823633156967" />
         <entry key="..\:/Users/Luis/AndroidStudioProjects/TJCPre/app/src/main/res/layout-land/woods_raid_mode.xml" value="0.15299823633156967" />
         <entry key="..\:/Users/Luis/AndroidStudioProjects/TJCPre/app/src/main/res/layout-v23/mapviewlistrow.xml" value="0.3625" />
         <entry key="..\:/Users/Luis/AndroidStudioProjects/TJCPre/app/src/main/res/layout/activity_map_pathing.xml" value="0.25" />
         <entry key="..\:/Users/Luis/AndroidStudioProjects/TJCPre/app/src/main/res/layout/create_user_page.xml" value="0.2421875" />
-        <entry key="..\:/Users/Luis/AndroidStudioProjects/TJCPre/app/src/main/res/layout/customs_raid_mode.xml" value="0.18072916666666666" />
+        <entry key="..\:/Users/Luis/AndroidStudioProjects/TJCPre/app/src/main/res/layout/customs_raid_mode.xml" value="0.1" />
         <entry key="..\:/Users/Luis/AndroidStudioProjects/TJCPre/app/src/main/res/layout/factory_raid_mode.xml" value="0.18072916666666666" />
         <entry key="..\:/Users/Luis/AndroidStudioProjects/TJCPre/app/src/main/res/layout/interchange_raid_mode.xml" value="0.18072916666666666" />
         <entry key="..\:/Users/Luis/AndroidStudioProjects/TJCPre/app/src/main/res/layout/iteminfoview.xml" value="0.22" />
@@ -30,7 +30,7 @@
         <entry key="..\:/Users/Luis/AndroidStudioProjects/TJCPre/app/src/main/res/layout/maplistlayout.xml" value="0.18541666666666667" />
         <entry key="..\:/Users/Luis/AndroidStudioProjects/TJCPre/app/src/main/res/layout/mapselectview.xml" value="0.1" />
         <entry key="..\:/Users/Luis/AndroidStudioProjects/TJCPre/app/src/main/res/layout/mapviewlistrow.xml" value="0.22" />
-        <entry key="..\:/Users/Luis/AndroidStudioProjects/TJCPre/app/src/main/res/layout/paintviewer.xml" value="0.18541666666666667" />
+        <entry key="..\:/Users/Luis/AndroidStudioProjects/TJCPre/app/src/main/res/layout/paintviewer.xml" value="0.1" />
         <entry key="..\:/Users/Luis/AndroidStudioProjects/TJCPre/app/src/main/res/layout/reserve_raid_mode.xml" value="0.18072916666666666" />
         <entry key="..\:/Users/Luis/AndroidStudioProjects/TJCPre/app/src/main/res/layout/shoreline_raid_mode.xml" value="0.18072916666666666" />
         <entry key="..\:/Users/Luis/AndroidStudioProjects/TJCPre/app/src/main/res/layout/tjcphomepage.xml" value="0.25" />
