@@ -7,6 +7,7 @@ import android.graphics.Path
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.RelativeLayout
 
 import androidx.appcompat.app.AppCompatActivity
 
@@ -27,21 +28,28 @@ class CustomsRaidMode : AppCompatActivity(){
         var EditmodeButton : Button = findViewById(R.id.EditMode)
 
 
+        var CustomsMap : ZoomableImage = findViewById(R.id.CustomsMap)
+        CustomsMap.setImageBitmap(BitmapFactory.decodeResource(resources,R.drawable.custumsmapog))
+
+
+
+        var paintView: View = findViewById(R.id.Internal_Paintviewer)
+        paintView.isClickable = false
 
         EditmodeButton.setOnClickListener(){
-            var paintView: View = findViewById(R.id.Internal_Paintviewer)
 
             paintView.isClickable = !(paintView.isClickable)
+
+            CustomsMap.isClickable = !(paintView.isClickable)
 
         }
 
 
 
 
-        var CustomsMap : ZoomableImage = findViewById(R.id.CustomsMap)
-        CustomsMap.setImageBitmap(BitmapFactory.decodeResource(resources,R.drawable.custumsmapog))
 
     }
+
 
 
 

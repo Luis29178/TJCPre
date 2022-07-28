@@ -28,7 +28,6 @@ class TJCPHome : AppCompatActivity() {
         }
         else {
             setContentView(R.layout.tjcphomepage)
-
             findViewById<Button>(R.id.Login).setOnClickListener{
                 val intent = Intent(this,LogInView::class.java)
                 startActivity(intent)
