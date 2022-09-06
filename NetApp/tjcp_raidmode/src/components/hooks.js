@@ -1,19 +1,21 @@
+import { clear } from '@testing-library/user-event/dist/clear';
 import {useEffect, useRef} from 'react'
+import map from '../Images/custumsmapog.png'
 
-export function useOnDraw(onDraw){
-
+export function useOnDraw(onDraw, clear){
 
    const canRef = useRef(null);
 
    const isDrawingRef = useRef(false);
+
+   
+
 
    const mouseMoveListenerRef = useRef(null);
    const mouseUpListenerRef = useRef(null);
    const mouseDownListenerRef = useRef(null);
 
    const prevPointRef = useRef(null);
-
-
 
 
    function setCanvasRef(ref){
@@ -31,6 +33,8 @@ export function useOnDraw(onDraw){
     initMouseuUpListener();
 
    }
+
+   
 
    function initMouseMoveListener(){
     const mouseMoveListener = (e)  =>{
@@ -69,19 +73,29 @@ export function useOnDraw(onDraw){
 
    function initMouseuUpListener(){
     if (!canRef.current) return;
+    
     const muListener = () => {
 
         isDrawingRef.current = false;
         prevPointRef.current = null;
-
+        console.log("in befor reset");
+        const ctx = canRef.current.getContext('2d');
+        if(clear) clear(ctx);
+        
+        console.log("in after reset");
+        
     }
     mouseUpListenerRef.current = muListener;
     window.addEventListener("mouseup", muListener);
+    
 
    }
 
+   
+
 
    function Compointcanvas(clientX,clientY){
+    
         if(canRef.current){
             const boundingRec = canRef.current.getBoundingClientRect();
             return{

@@ -14,7 +14,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.tjcpre.CustomsRaidMode.Companion.brush
 import com.example.tjcpre.CustomsRaidMode.Companion.path
-
+import kotlin.concurrent.thread
 
 
 class PaintView : View {
@@ -89,6 +89,7 @@ class PaintView : View {
 
                 //TODO: disable paintview actions if in move mode
                 if(this.isClickable) {
+
 
                     when (event.action) {
                         MotionEvent.ACTION_DOWN -> {
