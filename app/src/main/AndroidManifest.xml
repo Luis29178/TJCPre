@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.tjcpre">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+
     <application
         android:hardwareAccelerated="false"
         android:allowBackup="true"
@@ -60,6 +63,11 @@
         <activity
             android:exported="true"
             android:name=".ShorelineRaidMode">
+        </activity>
+
+        <activity
+            android:exported="true"
+            android:name=".CustomsRaidmodeWeb">
         </activity>
 
 

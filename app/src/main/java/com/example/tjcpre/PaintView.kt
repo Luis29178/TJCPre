@@ -14,13 +14,14 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.tjcpre.CustomsRaidMode.Companion.brush
 import com.example.tjcpre.CustomsRaidMode.Companion.path
+import java.util.concurrent.TimeUnit
 import kotlin.concurrent.thread
 
 
 class PaintView : View {
 
         private var params: ViewGroup.LayoutParams? = null
-
+        private var timer = 0
 
 
 
@@ -34,6 +35,8 @@ class PaintView : View {
             var CurrBrush = Color.BLACK
             var resettingPath : Boolean ?= null
             var lineDesTime : Long = 1500
+            var clear = false
+            var isClick = false
 
 
         }
@@ -88,13 +91,15 @@ class PaintView : View {
 
 
                 //TODO: disable paintview actions if in move mode
-                if(this.isClickable) {
+                if(isClick) {
 
 
                     when (event.action) {
                         MotionEvent.ACTION_DOWN -> {
-
-
+                            if (clear) {
+                                resetPath()
+                                clear = false
+                            }
                             path.moveTo(x, y)
                             return true
 
@@ -105,7 +110,12 @@ class PaintView : View {
                             ColorL.add(CurrBrush)
                         }
                         MotionEvent.ACTION_UP -> {
-                            resetPath() // replace with sequential delete with bitmap array to save states of the path being drawn to then reset it bit by bit will give smooth transition
+                            if (clear) {
+                                resetPath()
+                                clear = false
+                            }
+
+                             // replace with sequential delete with bitmap array to save states of the path being drawn to then reset it bit by bit will give smooth transition
 
                         }
                         else -> return false
@@ -120,7 +130,7 @@ class PaintView : View {
 
         }
 
-        private fun resetPath() {
+        fun resetPath() {
             /// use bitmaps to save previous states before drawn then use them to switch back and forth to slowly delete the drawn line
 
 
@@ -155,7 +165,10 @@ class PaintView : View {
 
         override fun onDraw(canvas: Canvas) {
             super.onDraw(canvas)
-
+            if (clear) {
+                resetPath()
+                clear = false
+            }
  
 
             for (i in PathL.indices) {
@@ -171,6 +184,7 @@ class PaintView : View {
 
 
         }
+
 
 
 }

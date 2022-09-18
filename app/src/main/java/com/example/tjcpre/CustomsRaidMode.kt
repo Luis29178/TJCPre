@@ -8,6 +8,8 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.RelativeLayout
+import com.example.tjcpre.PaintView.Companion.clear
+import com.example.tjcpre.PaintView.Companion.isClick
 
 import androidx.appcompat.app.AppCompatActivity
 
@@ -26,24 +28,29 @@ class CustomsRaidMode : AppCompatActivity(){
         this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
 
         var EditmodeButton : Button = findViewById(R.id.EditMode)
-
+        var clearButton : Button = findViewById(R.id.Customs_Clear)
 
         var CustomsMap : ZoomableImage = findViewById(R.id.CustomsMap)
         CustomsMap.setImageBitmap(BitmapFactory.decodeResource(resources,R.drawable.custumsmapog))
-
+        CustomsMap.isClickable = false
 
 
 
 
         var paintView: View = findViewById(R.id.Internal_Paintviewer)
-        paintView.isClickable = false
+        isClick = true
 
         EditmodeButton.setOnClickListener(){
 
-            paintView.isClickable = !(paintView.isClickable)
+            isClick = !isClick
+            clear = true
 
             CustomsMap.isClickable = !(paintView.isClickable)
 
+        }
+
+        clearButton.setOnClickListener(){
+            clear = true
         }
 
 

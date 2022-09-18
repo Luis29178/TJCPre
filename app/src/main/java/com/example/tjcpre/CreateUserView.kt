@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.example.tjcpre.LogInView.Companion.LoggedIn
 
 class CreateUserView : AppCompatActivity() {
 
@@ -59,6 +60,7 @@ class CreateUserView : AppCompatActivity() {
                         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                         intent.putExtra("user_id", user.uid)
                         intent.putExtra("User_email",_UsernameInput)
+                        LoggedIn = true
                         startActivity(intent)
                         finish()
 

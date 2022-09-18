@@ -20,6 +20,18 @@
         android:layout_marginTop="16dp"
         android:text="EditMode" />
 
+    <Button
+        android:id="@+id/Customs_Clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Clear"/>
+
 
     <RelativeLayout
         android:id="@+id/Customs_PaintViewer"
@@ -36,8 +48,11 @@
             android:contentDescription="@string/Customs" />
 
         <include
+            android:id="@+id/Internal_Paintviewer"
             layout="@layout/paintviewer"
             android:rotation="90" />
+
+
     </RelativeLayout>
 
 

@@ -12,14 +12,13 @@
         android:id="@+id/createnewAccountButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="112dp"
+        android:layout_marginTop="520dp"
         android:backgroundTint="@color/black"
         android:text="Create Account"
         android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.56"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/Login_Title"
+        app:layout_constraintStart_toStartOf="@+id/Login_Title"
+        app:layout_constraintTop_toTopOf="@+id/Login_Title" />
 
     <EditText
         android:id="@+id/EditCreateUserString"

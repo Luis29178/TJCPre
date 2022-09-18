@@ -82,6 +82,7 @@ class LogInView: AppCompatActivity(){
                                 Intent(this@LogInView, TJCPHome::class.java)
                             // removes instances running in the stack when activity is switched
                             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                            authUId = user.uid
                             intent.putExtra("user_id", user.uid)
                             intent.putExtra("User_email",InputEmail)
                             LoggedIn = true
