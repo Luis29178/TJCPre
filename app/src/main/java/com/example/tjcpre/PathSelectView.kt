@@ -35,6 +35,7 @@ class PathSelectView : AppCompatActivity() {
 
                 // region Customs
                 0 ->{
+
                     val intent = Intent(this,CustomsRaidMode::class.java)
                     startActivity(intent)
                 }

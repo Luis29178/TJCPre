@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CustomsRaidMode"
+    android:id="@+id/CustomsView"
     android:orientation="vertical">
 
     <Button
@@ -17,7 +18,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="EditMode" />
+        android:text="Draw Mode" />
 
     <Button
         android:id="@+id/Customs_Clear"
@@ -30,6 +31,17 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:text="Clear"/>
+
+    <Button
+        android:id="@+id/UploadButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="16dp"
+        android:text="Upload"
+        android:backgroundTint="#4D000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
     <RelativeLayout

@@ -9,7 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-
+import com.example.tjcpre.TJCPHome.Companion.LoggedIn
 
 
 class LogInView: AppCompatActivity(){
@@ -17,7 +17,6 @@ class LogInView: AppCompatActivity(){
     private var mAuth : FirebaseAuth = FirebaseAuth.getInstance();
 
     companion object{
-        var LoggedIn : Boolean = false
         var authUId : String = ""
     }
 

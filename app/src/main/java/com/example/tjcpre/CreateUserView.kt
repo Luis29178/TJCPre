@@ -9,14 +9,21 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.example.tjcpre.LogInView.Companion.LoggedIn
+import com.example.tjcpre.TJCPHome.Companion.LoggedIn
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class CreateUserView : AppCompatActivity() {
+    private lateinit var itemDatabase : DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.create_user_page)
         this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
+
+
 
         val UsernameInput  = findViewById<EditText>(R.id.EditCreateUserString)
         val PasswordInput  = findViewById<EditText>(R.id.EditCreatePassworedString)

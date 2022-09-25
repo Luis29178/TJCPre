@@ -110,6 +110,11 @@
             android:name=".ItemTrackerMenuView">
         </activity>
 
+        <activity
+            android:exported="true"
+            android:name=".RaidModePathSelectView">
+        </activity>
+
 
 
 
