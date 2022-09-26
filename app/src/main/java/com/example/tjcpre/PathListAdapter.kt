@@ -38,7 +38,8 @@ class PathListAdapter(val context: Context) : BaseAdapter() {
         var dataBase =  Firebase.firestore
         var CustomsPathred = dataBase.document("testUsers/${UID}/Paths/${mapString}Names").get()
         CustomsPathred.addOnSuccessListener { it ->
-            var path = it.get((position+1).toString())
+            var pos = position.toString()
+            var path = it.get(pos)
             Pathname.text = path.toString()
         }
 

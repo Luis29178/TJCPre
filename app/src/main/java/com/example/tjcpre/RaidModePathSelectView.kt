@@ -7,6 +7,7 @@ import android.widget.ListView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.tjcpre.MapSelectView.Companion.MapSelected
+import com.example.tjcpre.MapSelectView.Companion.mapString
 import com.example.tjcpre.MapSelectView.Companion.pathUri
 import com.example.tjcpre.TJCPHome.Companion.UID
 import com.google.firebase.storage.FirebaseStorage
@@ -29,7 +30,7 @@ class RaidModePathSelectView : AppCompatActivity(){
         listView.setOnItemClickListener { parent, view, position, id ->
 
             var pathSelected =  view.findViewById<TextView>(R.id.PathNameView)
-            pathUri = "Paths/${UID}/Customs/${pathSelected.text}.PNG"
+            pathUri = "Paths/${UID}/${mapString}/${pathSelected.text}.PNG"
 
             when (MapSelected) {
                 // region Customs

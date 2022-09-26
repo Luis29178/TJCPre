@@ -44,13 +44,15 @@ class CustomsRaidMode : AppCompatActivity(){
         var UploadButtton : Button = findViewById(R.id.UploadButton)
 
 
-        if(!inPaths || !LoggedIn) {
-            UploadButtton.visibility = View.GONE
+        if(!inPaths) {
+                UploadButtton.visibility = View.GONE
+                UploadButtton.isClickable = false
+
 
         }
         //Path Mode Logic
-        else
-        {
+        else {
+            if(LoggedIn){
             UploadButtton.visibility = View.VISIBLE
             UploadButtton.setOnClickListener {
 
@@ -153,6 +155,10 @@ class CustomsRaidMode : AppCompatActivity(){
                 }
 
 
+            }
+            }else{
+                UploadButtton.visibility = View.GONE
+                UploadButtton.isClickable = false
             }
         }
 

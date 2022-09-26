@@ -10,6 +10,7 @@ import android.widget.Switch
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.tjcpre.TJCPHome.Companion.UID
+import com.example.tjcpre.TJCPHome.Companion.inPaths
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -32,6 +33,9 @@ class MapSelectView : AppCompatActivity() {
         this.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
 
 
+
+
+
         val mapTitle = findViewById<TextView>(R.id.MapTitle)
         mapTitle.text = "Maps"
         val listView = findViewById<ListView>(R.id.MapList)
@@ -50,9 +54,8 @@ class MapSelectView : AppCompatActivity() {
 
         listView.setOnItemClickListener { parent, view, position, id ->
 
-            // this when loop will be Resposible for assigning
-            // witch map will open for raid mode
             MapSelected = position
+
 
 
 
@@ -121,7 +124,7 @@ class MapSelectView : AppCompatActivity() {
             }
             else
             {
-                when (MapSelected) {
+                when (position) {
 
                     // region Customs
                     0 -> {
@@ -179,6 +182,12 @@ class MapSelectView : AppCompatActivity() {
                     }
                     // endregion
                 }
+                var dataBase =  Firebase.firestore
+                var CustomsPathred = dataBase.document("testUsers/${UID}/Paths/${mapString}").get()
+                CustomsPathred.addOnSuccessListener { it ->
+                    var count = it.get("count")
+                    pathCount = count.toString().toInt()
+                }
 
 
 
@@ -198,11 +207,6 @@ class MapSelectView : AppCompatActivity() {
     override fun onStop() {
         super.onStop()
 
-        var dataBase =  Firebase.firestore
-        var CustomsPathred = dataBase.document("testUsers/${UID}/Paths/${mapString}").get()
-        CustomsPathred.addOnSuccessListener { it ->
-            var count = it.get("count")
-            pathCount = count.toString().toInt()
-        }
+
     }
 }

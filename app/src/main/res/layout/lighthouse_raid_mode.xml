@@ -4,20 +4,64 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CustomsRaidMode"
+    tools:context=".LighthouseRaidMode"
     android:orientation="vertical">
 
+    <Button
+        android:id="@+id/Lighthouse_EditMode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Draw Mode" />
 
-    <com.example.tjcpre.ZoomableImage
-        android:id="@+id/LighthouseMap"
+    <Button
+        android:id="@+id/Lighthouse_Clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Clear"/>
+
+    <Button
+        android:id="@+id/Lighthouse_UploadButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="16dp"
+        android:text="Upload"
+        android:backgroundTint="#4D000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <RelativeLayout
+        android:id="@+id/Lighthouse_PaintViewer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/Lighthouse" />
+        app:layout_constraintTop_toTopOf="parent">
 
+        <com.example.tjcpre.ZoomableImage
+            android:id="@+id/LighthouseMap"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/Customs" />
 
+        <include
+            android:id="@+id/Internal_Paintviewer"
+            layout="@layout/paintviewer"
+            android:rotation="90" />
+    </RelativeLayout>
 
 
 

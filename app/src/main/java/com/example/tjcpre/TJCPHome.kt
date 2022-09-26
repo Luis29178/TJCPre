@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.tjcpre.MapSelectView.Companion.SelectPath
 
 
 class TJCPHome : AppCompatActivity() {
@@ -56,8 +57,9 @@ class TJCPHome : AppCompatActivity() {
         findViewById<Button>(R.id.EscapeFromTarkove).setOnClickListener{
 
 
-            // TEMP: Switches to MapView Mode
-            inRaid = true
+
+            SelectPath = false
+            inPaths = false
             val intent = Intent(this,MapSelectView::class.java)
             startActivity(intent)
 
@@ -71,6 +73,7 @@ class TJCPHome : AppCompatActivity() {
         }
         findViewById<Button>(R.id.Paths).setOnClickListener{
 
+            SelectPath = false
             inPaths = true
             val intent = Intent(this,PathSelectView::class.java)
             startActivity(intent)
